@@ -1,18 +1,46 @@
 % Copyright 2013 Christophe-Marie Duquesne <chmd@chmd.fr>
 % Copyright 2014 Mark Szepieniec <http://github.com/mszep>
-% 
+%
 % ConText style for making a resume with pandoc. Inspired by moderncv.
-% 
+%
 % This CSS document is delivered to you under the CC BY-SA 3.0 License.
 % https://creativecommons.org/licenses/by-sa/3.0/deed.en_US
 
 \startmode[*mkii]
-  \enableregime[utf-8]  
+  \enableregime[utf-8]
   \setupcolors[state=start]
 \stopmode
 $if(mainlang)$
 \mainlanguage[$mainlang$]
 $endif$
+
+% Chinese
+\mainlanguage[cn]
+\language[cn]
+% break lines of Chinese
+\setscript[hanzi]
+
+% Emoji
+\usemodule[fonts-emoji]
+
+\definefontcolorpalette
+  [emojibw]
+  [middlegray]
+
+\definefontfeature
+  [overlay]
+  [default]
+  [ccmp=yes,
+   colr=emojibw,
+   dist=yes]
+
+\definefontsynonym
+  [emoji]
+  [file:TwemojiMozilla.ttf*overlay]
+
+\definefont
+  [emojifont]
+  [emoji]
 
 \setupcolor[hex]
 \definecolor[titlegrey][h=757575]
@@ -29,8 +57,19 @@ $endif$
                  header=0mm, footer=0mm]
 
 %\setuppagenumbering[location={footer,center}]
+% Chinese fonts\definefontfeature[default][default][script=latn, protrusion=quality, expansion=quality, itlc=yes, textitalics=yes, onum=yes, pnum=yes]
+\definefontfeature[smallcaps][script=latn, protrusion=quality, expansion=quality, smcp=yes, onum=yes, pnum=yes]
+\setupalign[hz,hanging]
+\setupitaliccorrection[global, always]
+\setupbodyfontenvironment[default][em=italic]
+% \definefallbackfamily[mainface][rm][DejaVu Serif][preset=range:greek, force=yes]
+\definefontfamily[mainface][rm][notosanscjksc][]
+\definefontfamily[mainface][mm][notosanscjksc]
+\definefontfamily[mainface][ss][notosanscjksc]
+\definefontfamily[mainface][tt][notosansmonocjksc][features=none]
+\setupbodyfont[mainface,]
 
-\setupbodyfont[11pt, helvetica]
+% \setupbodyfont[11pt, helvetica]
 
 \setupwhitespace[medium]
 
