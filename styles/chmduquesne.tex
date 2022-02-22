@@ -62,11 +62,19 @@ $endif$
 \setupalign[hz,hanging]
 \setupitaliccorrection[global, always]
 \setupbodyfontenvironment[default][em=italic]
+
+%% List fonts by `mtxrun --script fonts --list --all`
 % \definefallbackfamily[mainface][rm][DejaVu Serif][preset=range:greek, force=yes]
-\definefontfamily[mainface][rm][notosanscjksc][]
-\definefontfamily[mainface][mm][notosanscjksc]
-\definefontfamily[mainface][ss][notosanscjksc]
+% \definefontfamily[mainface][rm][notosanscjksc][]
+% \definefontfamily[mainface][mm][notosanscjksc]
+% \definefontfamily[mainface][ss][notosanscjksc]
 \definefontfamily[mainface][tt][notosansmonocjksc][features=none]
+
+\definefontfamily[mainface][rm][songtitc][]
+\definefontfamily[mainface][mm][songtitc]
+\definefontfamily[mainface][ss][songtitc]
+% \definefontfamily[mainface][tt][songtitc][features=none]
+
 \setupbodyfont[mainface,]
 
 % \setupbodyfont[11pt, helvetica]
